@@ -92,5 +92,37 @@ app.post("/login", async (req, res) => {
   });
 //});
 
+
+//product section
+
+const schemaProduct = mongoose.Schema({
+  name: String,
+  category:String,
+  image: String,
+  price: String,
+  description: String,
+});
+const productModel = mongoose.model("product",schemaProduct)
+
+
+
+//save product in data 
+//api
+//app.post("/uploadProduct",async(req,res)=>{
+app.post("/uploadProduct",(req,res)=>{
+   console.log(req.body)
+ // const data = await productModel(req.body)
+ // const datasave = await data.save()
+  res.send({message : "Carga exitosa"})
+})
+
+//
+//app.get("/product",async(req,res)=>{
+//const data = await productModel.find({})
+//res.send(JSON.stringify(data))
+//})
+
+
+
 //server is ruuning
 app.listen(PORT, () => console.log("El servidor esta corriendo en el puerto : " + PORT));
